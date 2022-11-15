@@ -1,76 +1,4 @@
 #include <stdio.h>
-void nic();
-void nic()
-{
-	char name[30],fathername[30],gender[8],identitynumber[30],dateofbirth[12],country[50],religion[20],address[30],birthmark[20],issuedate[12];
-			FILE *nicp=NULL;
-			nicp=fopen("D:/C practice/sample1.txt","a");
-			printf("Name: ");
-			fflush(stdin);
-			gets(name);
-			printf("Father's Name: ");
-			gets(fathername);
-			printf("Gender: ");
-			gets(gender);
-			printf("Identity number: ");
-			gets(identitynumber);
-			printf("Date of birth(DD/MM/YYYY): ");
-			fflush(stdin);
-			gets(dateofbirth);
-			printf("Nationality: ");
-			gets(country);
-			printf("Religion: ");
-			gets(religion);
-			printf("Permanent Address: ");
-			gets(address);
-			printf("Date of issue(DD/MM/YYYY): ");
-			gets(issuedate);
-			printf("Birth Mark: ");
-			gets(birthmark);
-			printf("\n\n");
-			fprintf(nicp,"_____________________________________________\n");
-		    fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    fprintf(nicp,"\t   GOVERNMENT OF PAKISTAN\n\n");
-		    fprintf(nicp," ");
-			fprintf(nicp," ");
-			fprintf(nicp," ");
-			fprintf(nicp," ");
-			fprintf(nicp,"\t  NATIONAL IDENTITY CARD\n");
-			fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			fprintf(nicp,"Name: %s",name);//puts(name);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Father's name:%s ",fathername);
-			//puts(fathername);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Gender: %s",gender);
-			//puts(gender);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"identity number:%s ",identitynumber);
-			//puts(identitynumber);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Date of birth:%s ",dateofbirth);
-			//puts(dateofbirth);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Nationality:%s ",country);
-			//puts(country);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Religion:%s ",religion);
-			//puts(religion);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Permanent Address: %s",address);
-			//puts(address);
-			fprintf(nicp,"\n");
-			fprintf(nicp,"Date of issue:%s ",issuedate);
-			//puts(dateofbirth);
-			fprintf(nicp,"\n");
-		    fprintf(nicp,"Birth Mark:%s ",birthmark);
-			//puts(birthmark);
-		    fprintf(nicp,"\n\n");
-		    fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    
-			fprintf(nicp,"_____________________________________________\n");
-	
-}
 void main (){
 /* Admin ka eik pasword, and full access
 user login hoga without pass/id, only view status but with ID/pass only and timmings etc
@@ -118,11 +46,55 @@ Presentation??
 			case 1:
 	printf("Select from following options:\n1.National Identity Card(NIC)\n2.Smart National Identity Card(SNIC)\n3.Birth certificate\n4.B-form\n5.NIC for Overseas Pakistanis(NICOP)\n6.Marriage Registeration Certificate\n7.Divorce Registeration Certificate\n8.Juvenile Card\n9.Vaccination Card\n10.Death Certificate\n11.Back\n12.Exit\n");
 	scanf("%d",&choice_d);
-	
 	switch(choice_d)
 	    {
 		case 1:
-			nic();
+			printf("Name: ");
+			fflush(stdin);
+			gets(name);
+			printf("Father's Name: ");
+			gets(fathername);
+			printf("Gender: ");
+			gets(gender);
+			printf("Identity number: ");
+			gets(identitynumber);
+			printf("Date of birth(DD/MM/YYYY): ");
+			fflush(stdin);
+			gets(dateofbirth);
+			printf("Nationality: ");
+			gets(country);
+			printf("Religion: ");
+			gets(religion);
+			printf("Permanent Address: ");
+			gets(address);
+			printf("Date of issue(DD/MM/YYYY): ");
+			gets(issuedate);
+			printf("Birth Mark: ");
+			gets(birthmark);
+			printf("\n\n");
+		    printf("_____________________________________________\n");
+		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+		    printf("\t   GOVERNMENT OF PAKISTAN\n\n");
+		    printf(" ");
+			printf(" ");
+			printf(" ");
+			printf(" ");
+			printf("\tNATIONAL IDENTITY CARD\n");
+			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+			printf("Name: ");puts(name);printf("\n");
+			printf("Father's name: ");puts(fathername);printf("\n");
+			printf("Gender: ");puts(gender);printf("\n");
+			printf("identity number: ");puts(identitynumber);printf("\n");
+			printf("Date of birth: ");puts(dateofbirth);printf("\n");
+			printf("Nationality: ");puts(country);printf("\n");
+			printf("Religion: ");puts(religion);printf("\n");
+			printf("Permanent Address: ");puts(address);printf("\n");
+			printf("Date of issue: ");puts(dateofbirth);printf("\n");
+		    printf("Birth Mark: ");puts(birthmark);
+		    printf("\n\n");
+		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+		    
+			printf("_____________________________________________\n");
 			break;
 			
 		case 2:
