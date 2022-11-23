@@ -1,648 +1,1174 @@
 #include <stdio.h>
-void main (){
-/* Admin ka eik pasword, and full access
-user login hoga without pass/id, only view status but with ID/pass only and timmings etc
-Back and Exit? 
-Family registerion?
-Status track?
-ID generator?
-Serach Engine?
-Filing??????
-Designing?
-Presentation??
-*/ 
-   
+#include<string.h>
+#include<stdlib.h>
+
+void nic();
+void snic();
+void birth();
+void bform();
+void nicop();
+void marriage();
+void divorce();
+void juvenile();
+void vaccine();
+void death();
+
+struct common {
+	char name[30],fathername[30],gender[10],identitynumber[30],dateofbirth[10],issuedate[10],expirydate[10],address[30],fathercnic[30],district[30];
+	char mothercnic[30],mothername[30],applicantname[30],applicantcnic[30],applicantrelation[20],nationality[30],religion[20],birthmark[20],relation[20];
+	struct bcertificate {
+		char grandfathername[30],grandfathercnic[30],mothernationality[20],fathernationality[20];
+	} bc;
+	//struct bcertificate bc;
+	struct bform {
+		char disability[20];
+	} bf;
+	//struct bform bf;
+	struct nicop {
+		char country[30];
+	} op;
+	//struct nicop op
+	struct marriage_divorce {
+		char name_g[20],nat_g[15],cnic_g[15],rel_g[14],age_g[3],martials_g[15],fname_g[20],fcnic_g[15],add_g[50],dist_g[20];
+		char name_b[20],nat_b[15],cnic_b[15],rel_b[14],age_b[3],martials_b[15],fname_b[20],fcnic_b[15],add_b[50],dist_b[20];
+	} md;
+	//struct marriage_divorce md;
+	struct vaccination {
+		char passport[30],dateofvac1[10],nameofVac1[20],center1[20],dateofvac2[10],nameofVac2[20],center2[20];
+	} vacc;
+	//struct vaccination vacc;
+	struct death {
+		char crms[10],formnumber[10],nature[20],housenumber[5],city[20],tehsil[20],dateofdeath[10],dateofburial[10],graveyard[20],entrydate[10],addinfo[50],placeofdeath[30];
+	} dt;
+	//struct death dt;
+} person;
+
+void main () {
+	/* Admin ka eik pasword, and full access
+	user login hoga without pass/id, only view status but with ID/pass only and timmings etc
+	Back and Exit?
+	Family registerion?
+	Status track?
+	ID generator?
+	Serach Engine?
+	Filing??????
+	Designing?
+	Presentation??
+	*/
 	printf("1.Login as Administrator\n2.Login as User\n");
 	int choice_l;
 	scanf("%d",&choice_l);
-    printf("Select from following:\n1.ID Documents\n2.Timmings\n3.Complaints\n4.About Us\n5.Public Engagemnet\n6.Back\n7.Exit\n");
-    int choice_m;
-    scanf("%d",&choice_m);
+	system("cls");
+back1:
+	system("cls");
+	printf("Select from following:\n1.ID Documents\n2.Timmings\n3.Complaints\n4.About Us\n5.Public Engagemnet\n6.Exit\n");
+	int choice_m;
+	scanf("%d",&choice_m);
+	system("cls");
 	int choice_d;
 	char fname[20],gen[9],dob[15],stay[20];
 	char name_g[20],nat_g[15],cnic_g[15],rel_g[14],age_g[3],martials_g[15],fname_g[20],fcnic_g[15],add_g[50],dist_g[20];
 	char name_b[20],nat_b[15],cnic_b[15],rel_b[14],age_b[3],martials_b[15],fname_b[20],fcnic_b[15],add_b[50],dist_b[20];
-	
+
 	char fathername[30],gender[8],address[30],issuedate[15],country[20],expdate[15],dateofbirth[15],identitynumber[25];
 	char relation[20],applicant[20],applicantcnic[20],birthmark[30],district[20],fathercnic[20],fathernationality[20];
 	char mothername[20],mothernationality[20],mothercnic[20],grandfathername[25],grandfathercnic[20],registrationnumber[20],disability[20];
-	
+
 	char f_name[20];
 	int identity_no[20],DOB[15],DOI[15],DOE[15];
 	int passport[15],CNIC[19],vac1[10],vac2[10];
 	int CRMS[10],FORM[10], cnic[16],DOD[15],DOBU[15],SICK[10],E_D[16],I_D[16];
 	char nature[10],name[50],rel[20],house[50],city[20],tehsil[20], deceased[50],d_cnic[16],GRAVEYARD[20],sex[15];
 	char religion[20],p_of_death[20],R_O_D[30],A_I[30];
-	
+
 	int choice_AS;
-	
+
 	char nationality[15],namofcent1[20],vac_nam1[15],namofcent2[20],vac_nam2[15];
-	switch (choice_m){
+	switch (choice_m) {
 		case 1:
-			printf("1.Add\n2.View status\n");
+back2:
+			system("cls");
+			printf("1.Add\n2.View status\n3.Back\n4.Exit\n");
 			scanf("%d",&choice_AS);
-			switch(choice_AS)
-			{
-			case 1:
-	printf("Select from following options:\n1.National Identity Card(NIC)\n2.Smart National Identity Card(SNIC)\n3.Birth certificate\n4.B-form\n5.NIC for Overseas Pakistanis(NICOP)\n6.Marriage Registeration Certificate\n7.Divorce Registeration Certificate\n8.Juvenile Card\n9.Vaccination Card\n10.Death Certificate\n11.Back\n12.Exit\n");
-	scanf("%d",&choice_d);
-	switch(choice_d)
-	    {
-		case 1:
-			printf("Name: ");
-			fflush(stdin);
-			gets(name);
-			printf("Father's Name: ");
-			gets(fathername);
-			printf("Gender: ");
-			gets(gender);
-			printf("Identity number: ");
-			gets(identitynumber);
-			printf("Date of birth(DD/MM/YYYY): ");
-			fflush(stdin);
-			gets(dateofbirth);
-			printf("Nationality: ");
-			gets(country);
-			printf("Religion: ");
-			gets(religion);
-			printf("Permanent Address: ");
-			gets(address);
-			printf("Date of issue(DD/MM/YYYY): ");
-			gets(issuedate);
-			printf("Birth Mark: ");
-			gets(birthmark);
-			printf("\n\n");
-		    printf("_____________________________________________\n");
-		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    printf("\t   GOVERNMENT OF PAKISTAN\n\n");
-		    printf(" ");
-			printf(" ");
-			printf(" ");
-			printf(" ");
-			printf("\tNATIONAL IDENTITY CARD\n");
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("Name: ");puts(name);printf("\n");
-			printf("Father's name: ");puts(fathername);printf("\n");
-			printf("Gender: ");puts(gender);printf("\n");
-			printf("identity number: ");puts(identitynumber);printf("\n");
-			printf("Date of birth: ");puts(dateofbirth);printf("\n");
-			printf("Nationality: ");puts(country);printf("\n");
-			printf("Religion: ");puts(religion);printf("\n");
-			printf("Permanent Address: ");puts(address);printf("\n");
-			printf("Date of issue: ");puts(dateofbirth);printf("\n");
-		    printf("Birth Mark: ");puts(birthmark);
-		    printf("\n\n");
-		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    
-			printf("_____________________________________________\n");
+			system("cls");
+			switch(choice_AS) {
+				case 1:
+					printf("Select from following options:\n1.National Identity Card(NIC)\n2.Smart National Identity Card(SNIC)\n3.Birth certificate\n4.B-form\n5.NIC for Overseas Pakistanis(NICOP)\n6.Marriage Registeration Certificate\n7.Divorce Registeration Certificate\n8.Juvenile Card\n9.Vaccination Card\n10.Death Certificate\n11.Back\n12.Exit\n");
+					scanf("%d",&choice_d);
+					system("cls");
+					switch(choice_d) {
+						case 1:
+							nic();
+							break;
+						case 2:
+							snic();
+							break;
+						case 3:
+							birth();
+							break;
+						case 4:
+							bform();
+							break;
+						case 5:
+							nicop();
+							break;
+						case 6:
+							marriage();
+							break;
+						case 7:
+							divorce();
+							break;
+						case 8:
+							juvenile();
+
+							break;
+						case 9:
+							vaccine();
+							break;
+						case 10:
+							death();
+							break;
+						case 11:
+							goto back2;
+							break;
+						case 12:
+							exit(1);
+							break;
+					}
+					break;
+				case 2:
+					printf("Miss say Pochna hai !\n");
+					break;
+				case 3:
+					goto back1;
+					break;
+				case 4:
+					exit(1);
+					break;
+			}
 			break;
-			
-		case 2:
-			printf("Name: ");
-			fflush(stdin);
-			gets(name);
-			printf("Father's Name: ");
-			gets(fathername);
-			printf("Gender: ");
-			gets(gender);
-			printf("Identity number: ");
-			gets(identitynumber);
-			printf("Date of birth(DD/MM/YYYY): ");
-			fflush(stdin);
-			gets(dateofbirth);
-			printf("Nationality: ");
-			gets(country);
-			printf("Religion: ");
-			gets(religion);
-			printf("Permanent Address: ");
-			gets(address);
-			printf("Date of issue(DD/MM/YYYY): ");
-			gets(issuedate);
-			printf("Birth Mark: ");gets(birthmark);
-		    printf("_____________________________________________\n");
-		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    printf("\t   GOVERNMENT OF PAKISTAN\n\n");
-		    printf("\tSMART NATIONAL IDENTITY CARD\n");
-		    printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("Name: ");puts(name);printf("\n");
-			printf("Father's name: ");puts(fathername);printf("\n");
-			printf("Gender: ");puts(gender);printf("\n");
-			printf("identity number: ");puts(identitynumber);printf("\n");
-			printf("Date of birth: ");puts(dateofbirth);printf("\n");
-			printf("Nationality: ");puts(country);printf("\n");
-			printf("Religion: ");puts(religion);printf("\n");
-			printf("Permanent Address: ");puts(address);printf("\n");
-			printf("Date of issue: ");puts(dateofbirth);printf("\n");
-		    printf("Birth Mark: ");puts(birthmark);
-			;
-			printf("\n\n");
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-		    
-			printf("_____________________________________________\n");
-			break;
-			break;
-		case 3:
-			printf("Name of child: ");
-			fflush(stdin);
-			gets(name);
-			printf("Date of birth: ");
-			gets(dateofbirth);
-			printf("Gender: ");
-			gets(gender);
-			printf("District of birth: ");
-			gets(district);
-			printf("Father's name: ");
-			gets(fathername);
-			printf("Nationality of father:");
-			gets(fathernationality);
-			printf("CNIC No. of Father: ");
-			gets(fathercnic);
-			printf("Mother's name: ");
-			gets(mothername);
-			printf("Nationality of mother: ");
-			gets(mothernationality);
-			printf("CNIC No. of mother: ");
-			gets(mothercnic);
-			printf("Grandfather's name: ");
-			gets(grandfathername);
-			printf("Grand father's CNIC No. : ");
-			gets(grandfathercnic);
-			printf("address: ");
-			gets(address);
-			printf("Name of applicant: ");
-			gets(applicant);
-			printf("Relation with child: ");
-			gets(relation);
-			printf("\n\n");
-			
-			printf("_____________________________________________\n");
-			printf("\t   GOVERNMENT OF PAKISTAN\n\n");
-			printf("\tBirth Registration Certificate\n");
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("\t\tChild's Detail\n\n");
-			printf("Name: ");
-			puts(name);
-			printf("Date of birth: ");
-			puts(dateofbirth);
-			printf("Gender: ");
-			puts(gender);
-			printf("District of birth: ");
-			puts(district);
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("  ");printf("     \tParental Information\n\n");
-			printf("Father's name: ");
-			puts(fathername);
-			printf("Nationality of father:");
-			puts(fathernationality);
-			printf("CNIC No. of Father: ");
-			puts(fathercnic);
-			printf("Mother's name: ");
-			puts(mothername);
-			printf("Nationality of mother: ");
-			puts(mothernationality);
-			printf("CNIC No. of mother: ");
-			puts(mothercnic);
-			printf("Grandfather's name: ");
-			puts(grandfathername);
-			printf("Grand father's CNIC No. : ");
-			puts(grandfathercnic);
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("   \t\tAddress\n\n");
-			printf("address: ");
-			puts(address);
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("    \tApplicant's Information\n\n");
-			printf("Name of applicant: ");
-			puts(applicant);
-			printf("Relation with child: ");
-			puts(relation);
-			printf("\n");
-			printf("_____________________________________________\n");
-			break;
-		case 4:
-			printf("Name of applicant: ");
-			fflush(stdin);
-			gets(applicant);
-			printf("CNIC No. of applicant: ");
-			gets(applicantcnic);
-			printf("Name of child: ");
-			gets(name);
-			printf("Gender: ");
-			gets(gender);
-			printf("Registration number: ");
-			gets(registrationnumber);
-			printf("Father's name: ");
-			gets(fathername);
-			printf("CNIC No. of Father: ");
-			gets(fathercnic);
-			printf("Mother's name: ");
-			gets(mothername);
-			printf("CNIC No. of mother: ");
-			gets(mothercnic);
-			
-			printf("Date of birth: ");
-			gets(dateofbirth);
-			printf("Disability: ");
-			gets(disability);
-			printf("\n\n");
-			
-			printf("_____________________________________________\n");
-			printf("\t   GOVERNMENT OF PAKISTAN\n\n");
-			printf("  ");printf("\t\tB-Form\n");
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("Name of applicant: ");
-			puts(applicant);
-			printf("CNIC No. of applicant: ");
-			puts(applicantcnic);
-			printf("Name of child: ");
-			puts(name);
-			printf("Gender: ");
-			puts(gender);
-			printf("Registration number: ");
-			puts(registrationnumber);
-			printf("Father's name: ");
-			puts(fathername);
-			printf("CNIC No. of Father: ");
-			puts(fathercnic);
-			printf("Mother's name: ");
-			puts(mothername);
-			printf("CNIC No. of mother: ");
-			puts(mothercnic);
-			
-			printf("Date of birth: ");
-			puts(dateofbirth);
-			printf("Disability: ");
-			puts(disability);
-			printf("\n\n");
-			printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
-			printf("_____________________________________________\n");
-			
-			break;
-				case 5:
-			printf("Enter the following details:\n1.Name:  ");
-			fflush(stdin);	
-			gets(name);
-			printf("\n2.Father's Name:  ");
-			gets(fname);
-			printf("\n3.Gender:  ");
-			gets(gen);
-			printf("\n4.Date of Birth(DD/MM/YYYY):  ");
-			gets(dob);
-			printf("\n5.Country of Stay:  ");
-			gets(stay);
-			printf("\n------------------------------------------------------\n------------------------------------------------------\n");
-            printf("\t\t   NICOP CARD\n------------------------------------------------------\n------------------------------------------------------\n");
-	        printf("   Name: ");
-	        puts(name);
-	        printf("\n   Father's Name: ");
-	        puts(fname);
-	        printf("\n   Gender: ");
-	        puts(gen);
-	        printf("\n   Date of Birth: ");
-	        puts(dob);
-	        printf("\n   Country of Stay: ");
-	        puts(stay);	             
-			break;
-        case 6:
-       printf("Enter Particulars of Groom:\n1.Name  ");
-       fflush(stdin);
-       gets(name_g);
-       printf("\n2.Nationality:  ");
-       gets(nat_g);
-       printf("\n3.CNIC.NO:  ");
-       gets(cnic_g);
-       printf("\n4.Religion:  ");
-       gets(rel_g);
-       printf("\n5.Age:  ");
-       gets(age_g);
-       printf("\n6.Martial Status:  ");
-       gets(martials_g);
-       printf("\n7.Father's Name:  ");
-       gets(fname_g);
-       printf("\n8.CNIC.NO:  ");
-       gets(fcnic_g);
-	   printf("\n9.Address:  ");
-	   gets(add_g);
-	   printf("\n10.District:  ");
-	   gets(dist_g);        	
-       printf("\n\nEnter Particulars of Bride:\n1.Name  ");
-       fflush(stdin);
-       gets(name_b);
-       printf("\n2.Nationality:  ");
-       gets(nat_b);
-       printf("\n3.CNIC.NO:  ");
-       gets(cnic_b);
-       printf("\n4.Religion:  ");
-       gets(rel_b);
-       printf("\n5.Age:  ");
-       gets(age_b);
-       printf("\n6.Martial Status:  ");
-       gets(martials_b);
-       printf("\n7.Father's Name:  ");
-       gets(fname_b);
-       printf("\n8.CNIC.NO:  ");
-       gets(fcnic_b);
-	   printf("\n9.Address:  ");
-	   gets(add_b);
-	   printf("\n10.District:  ");
-	   gets(dist_b);
-	   	printf("\n------------------------------------------------------\n------------------------------------------------------\n");
-    printf("\tMARRIAGE REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
-	printf("\t     Particulars of Groom\n------------------------------------------------------\n");
-	printf("   Name: ");
-	puts(name_g);
-	printf("\n   Nationality: ");
-	puts(nat_g);
-	printf("\n   CNIC NO: ");
-	puts(cnic_g);
-	printf("\n   Religion: ");
-	puts(rel_g);
-	printf("\n   Age: ");
-	puts(age_g);
-	printf("\n   Martial Status: ");
-	puts(martials_g);
-	printf("\n   Father's Name: ");
-	puts(fname_g);
-	printf("\n   CNIC NO: ");
-	puts(fcnic_g);
-	printf("\n   Address: ");
-	puts(add_g);
-	printf("\n   District: ");
-	puts(dist_g);
-	printf("------------------------------------------------------\n\t     Particulars of Bride\n------------------------------------------------------\n");
-	printf("   Name: ");
-	puts(name_b);
-	printf("\n   Nationality: ");
-	puts(nat_b);
-	printf("\n   CNIC NO: ");
-	puts(cnic_b);
-	printf("\n   Religion: ");
-	puts(rel_b);
-	printf("\n   Age: ");
-	puts(age_b);
-	printf("\n   Martial Status: ");
-	puts(martials_b);
-	printf("\n   Father's Name: ");
-	puts(fname_b);
-	printf("\n   CNIC NO: ");
-	puts(fcnic_b);
-	printf("\n   Address: ");
-	puts(add_b);
-	printf("\n   District: ");
-	puts(dist_b);	   
-	 break;
-        case 7:
-       printf("Enter Divorcer's Details:\n1.Name  ");
-       fflush(stdin);
-       gets(name_g);
-       printf("\n2.Nationality:  ");
-       gets(nat_g);
-       printf("\n3.CNIC.NO:  ");
-       gets(cnic_g);
-       printf("\n4.Religion:  ");
-       gets(rel_g);
-       printf("\n5.Age:  ");
-       gets(age_g);
-       printf("\n6.Father's Name:  ");
-       gets(fname_g);
-       printf("\n7.CNIC.NO:  ");
-       gets(fcnic_g);
-	   printf("\n8.Address:  ");
-	   gets(add_g);
-	   printf("\n9.District:  ");
-	   gets(dist_g);        	
-       printf("\n\nEnter Divorcee's Details:\n1.Name  ");
-       fflush(stdin);
-       gets(name_b);
-       printf("\n2.Nationality:  ");
-       gets(nat_b);
-       printf("\n3.CNIC.NO:  ");
-       gets(cnic_b);
-       printf("\n4.Religion:  ");
-       gets(rel_b);
-       printf("\n5.Age:  ");
-       gets(age_b);
-       printf("\n6.Father's Name:  ");
-       gets(fname_b);
-       printf("\n7.CNIC.NO:  ");
-       gets(fcnic_b);
-	   printf("\n8.Address:  ");
-	   gets(add_b);
-	   printf("\n9.District:  ");
-	   gets(dist_b);
-	   	printf("\n------------------------------------------------------\n------------------------------------------------------\n");
-    	printf("\tDivorce REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
-		printf("\t     Divorcer's Details\n------------------------------------------------------\n");
-	 	printf("   Name: ");
-		puts(name_g);
-		printf("\n   Nationality: ");
-		puts(nat_g);
-		printf("\n   CNIC NO: ");
-		puts(cnic_g);
-		printf("\n   Religion: ");
-	puts(rel_g);
-	printf("\n   Age: ");
-	puts(age_g);
-	printf("\n   Father's Name: ");
-	puts(fname_g);
-	printf("\n   CNIC NO: ");
-	puts(fcnic_g);
-	printf("\n   Address: ");
-	puts(add_g);
-	printf("\n   District: ");
-	puts(dist_g);
-	printf("------------------------------------------------------\n\t    Divorcee's Details\n------------------------------------------------------\n");
-	printf("   Name: ");
-	puts(name_b);
-	printf("\n   Nationality: ");
-	puts(nat_b);
-	printf("\n   CNIC NO: ");
-	puts(cnic_b);
-	printf("\n   Religion: ");
-	puts(rel_b);
-	printf("\n   Age: ");
-	puts(age_b);
-	printf("\n   Father's Name: ");
-	puts(fname_b);
-	printf("\n   CNIC NO: ");
-	puts(fcnic_b);
-	printf("\n   Address: ");
-	puts(add_b);
-	printf("\n   District: ");
-	puts(dist_b);	   
-	 break;	 
-	 case 8:
-	 printf("Name: ");
-	 fflush(stdin);
-	gets(name);
-	printf("Father Name: ");
-	gets(f_name);
-	printf("Gender: ");
-	gets(gender);
-	printf("Country Of Stay: ");
-	gets(country);
-	printf("Identity Number: ");
-	gets(identity_no);
-	printf("Date Of Birth: ");
-	gets(DOB);
-	printf("Date Of Insurace: ");
-	gets(DOI);
-	printf("Date Of Expiry: ");
-	gets(DOE);	
-	printf("____________________________________________________________________\n");
-	printf("\t\t\t\t\t\t   Only For UNDER 18");
-	printf("\n\nPAKISTAN\t\t\tNational Identity Card");
-	printf("\n-----------\nISLAMIC REPUBLIC OF PAKISTAN");
-	printf("Name: ");
-	puts(name);
-	printf("Father Name: ");
-	puts(f_name);
-	printf("Gender: ");
-	puts(gender);
-	printf("Country Of Stay: ");
-	puts(country);
-	printf("Country Of Stay: ");
-	puts(identity_no);
-	printf("Date Of Birth: ");	
-	puts(DOB);
-	printf("Date Of Insurace: ");
-	puts(DOI);
-	printf("Date Of Expiry: ");	
-	puts(DOE);
-	break;
-	case 9:
-		printf("IMMUNIZATION CERTIFICATE FOR COVID-19\n");	
-		printf("ENTER NAME: ");
-		gets(name);
-		printf("ENTER THE DATE OF BIRTH[DD-MM-YY]: ");
-		gets(DOB);
-		printf("ENTER THE NATIONALITY: ");	
-		gets(nationality);
-		printf("ENTER THE CNIC NO.: ");
-		gets(CNIC);
-		printf("ENTER THE PASSPORT NO.: ");
-		gets(passport);	
-		printf("\nhas been administered following COVID-19 vaccination\n");
-	
-		printf("ENTER DATE OF 1 VACCINATION DOSE[DD-MM-YY]: ");
-		gets(vac1);
-		printf("ENTER THE NAME OF CENTRE: ");
-		gets(namofcent1);
-		printf("ENTER THE VACCINE MANUFACTURER NAME: ");
-		gets(vac_nam1);	
-		printf("ENTER DATE OF 2 VACCINATION DOSE[DD-MM-YY]: ");
-		gets(vac2);
-		printf("ENTER THE NAME OF CENTRE: ");
-		gets(namofcent2);
-		printf("ENTER THE VACCINE MANUFACTURER NAME: ");
-		gets(vac_nam2);	
-	
-		printf("\n---------------------------------------------------------\n");
-		printf("Name: ");
-		puts(name);
-		printf("CNIC NO.:");
-		puts(CNIC);
-		printf("Date Of Birth: ");
-		puts(DOB);
-		printf("Nationality: ");
-		puts(nationality);
-	    printf("Passport No.: ");
-		puts(passport);
-		printf("Vaccine\t   Date\t    Name of Health Centre\tVaccine Manufacturer Name\n");
-		printf("1\t %s\t   %s\t\t\t%s", vac1 , namofcent1 , vac_nam1);
-	    printf("\n");
-		printf("2\t %s\t   %s\t\t\t%s", vac2 , namofcent2 , vac_nam2);  
-		break;
-		case 10:
-	printf("CRMS NO: ");
-	fflush(stdin);
-	gets(CRMS);
-	printf("FORM NO: ");
-	gets(FORM);
-	printf("NATURE OF DEATH: ");
-	gets(nature);
-	printf("APPLICANT NAME: ");
-	gets(name);
-	printf("APPLICANT CNIC: ");
-	gets(cnic);
-	printf("RELATION WITH DECEASED: ");
-	gets(rel);
-	printf("ADDRESS: HOUSE#: ");
-	gets(house);
-	printf("CITY: ");
-	gets(city);
-	printf("TEHSIL: ");
-	gets(tehsil);
-	printf("DISTRICT: ");
-	gets(district);
-	printf("DECEASED NAME: ");
-	fflush(stdin);
-	gets(deceased);
-	printf("DECEASED CNIC: ");
-	gets(d_cnic);
-	printf("FATHER NAME: ");
-	gets(f_name);
-	printf("DATE OF BIRTH: ");
-	gets(DOB);
-	printf("SEX: ");
-	gets(sex);
-	printf("RELIGION: ");
-	gets(religion);
-	printf("PLACE OF DEATH: ");
-	gets(p_of_death);
-	printf("DATE OF DEATH: ");
-	gets(DOD);
-	printf("DATE OF BURIAL: ");
-	gets(DOBU);
-	printf("GRAVEYARD NAME: ");
-	gets(GRAVEYARD);
-	printf("ENTRY DATE:  ");
-	gets(E_D);
-	printf("ISSUE DATE: ");
-	gets(I_D);
-	printf("ADDITIONAL INFORMATION: ");
-	gets(A_I);
-	
-	//---------------------------------------------------------------------------------------------------------
-	//for output
-	
-	printf("\t\tTHE GOVT. OF SINDH PAKISTAN\n\n\t\t    DEATH CERTIFICTE\n\n");
-	printf("CRMS NO: %s\t\t\t\t\tFORM NO: %s\n",CRMS ,FORM );
-	printf("NATURE OF DEATH: ");
-	puts(nature);
-	printf("APPLICANT NAME: ");	
-	puts(name);
-	printf("CNIC: %s\t\tRELATION WITH DECEASED: %s\n", cnic, rel);
-	printf("ADDRESS: HOUSE#: ");
-	puts(house);
-	printf("CITY: %s\tTEHSIL: %s\tDISTRICT: %s\n\n",city, tehsil,district);
-	printf("DECEASED NAME:%s\nFATHER NAME: %s\nDATE OF BIRTH:%s\nSEX: %s\nRELIGION: %s\nPLACE: %s\nDATE OF BURIAL: %s",deceased, f_name, DOB, sex,religion,p_of_death, DOBU  );
-	printf("NAME: %s\nCNIC: %s\nGRAVEYARD NAME: %s\nENTRY DATE: %s\nISSUE DATE: %s\nADDITIONAL INFO: %s", deceased, d_cnic, GRAVEYARD, E_D, I_D,A_I);
-	break;
-	    }
-	    break;
-	    case 2:
-	    	printf("Miss say Pochna hai !\n");
-	    	break;
-    }
-	break;
 		case 2:
 			printf("To be added\n");
-	break;
+			break;
 		case 3:
 			printf("TO be added\n");
-		break;
+			break;
 		case 4:
 			printf("To be added\n");
-		break;
+			break;
 		case 5:
 			printf("TO be added\n");
-	break;
+			break;
 		case 6:
-			printf("Miss say Pochna hai !\n");		
-		break;
-		case 7:
-			printf("Miss say Pochna hai !\n");	
-	break;
+			exit(1);
+			break;
+	}
 }
+void nic() {
+	char name[30],fathername[30],gender[8],identitynumber[30],dateofbirth[12],country[50],religion[20],address[30],birthmark[20],issuedate[12];
+	FILE *nicp=NULL;
+	printf("Name: ");
+	fflush(stdin);
+	gets(person.name);
+	printf("Father's Name: ");
+	gets(person.fathername);
+	printf("Gender: ");
+	gets(person.gender);
+	printf("Identity number: ");
+	gets(person.identitynumber);
+	printf("Date of birth(DD/MM/YYYY): ");
+	fflush(stdin);
+	gets(person.dateofbirth);
+	printf("Nationality: ");
+	gets(person.nationality);
+	printf("Religion: ");
+	gets(person.religion);
+	printf("Permanent Address: ");
+	gets(person.address);
+	printf("Date of issue(DD/MM/YYYY): ");
+	gets(person.issuedate);
+	printf("Birth Mark: ");
+	gets(person.birthmark);
+	printf("\n\n");
+	nicp=fopen(person.identitynumber,"a");
+	fprintf(nicp,"_____________________________________________\n");
+	fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(nicp,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(nicp," ");
+	fprintf(nicp," ");
+	fprintf(nicp," ");
+	fprintf(nicp," ");
+	fprintf(nicp,"\t  NATIONAL IDENTITY CARD\n");
+	fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(nicp,"Name: %s",person.name);//puts(name);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Father's name:%s ",person.fathername);
+	//puts(fathername);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Gender: %s",person.gender);
+	//puts(gender);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"identity number:%s ",person.identitynumber);
+	//puts(identitynumber);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Date of birth:%s ",person.dateofbirth);
+	//puts(dateofbirth);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Nationality:%s ",person.nationality);
+	//puts(country);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Religion:%s ",person.religion);
+	//puts(religion);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Permanent Address: %s",person.address);
+	//puts(address);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Date of issue:%s ",person.issuedate);
+	//puts(dateofbirth);
+	fprintf(nicp,"\n");
+	fprintf(nicp,"Birth Mark:%s ",person.birthmark);
+	//puts(birthmark);
+	fprintf(nicp,"\n\n");
+	fprintf(nicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(nicp,"_____________________________________________\n");
+	fclose(nicp);
+
+}
+void snic() {
+	char name[30],fathername[30],gender[8],identitynumber[30],dateofbirth[12],country[50],religion[20],address[30],birthmark[20],issuedate[12];
+	FILE *snicp=NULL;
+	printf("Name: ");
+	fflush(stdin);
+	gets(person.name);
+	printf("Father's Name: ");
+	gets(person.fathername);
+	printf("Gender: ");
+	gets(person.gender);
+	printf("Identity number: ");
+	gets(person.identitynumber);
+	printf("Date of birth(DD/MM/YYYY): ");
+	fflush(stdin);
+	gets(person.dateofbirth);
+	printf("Nationality: ");
+	gets(person.nationality);
+	printf("Religion: ");
+	gets(person.religion);
+	printf("Permanent Address: ");
+	gets(person.address);
+	printf("Date of issue(DD/MM/YYYY): ");
+	gets(person.issuedate);
+	printf("Birth Mark: ");
+	gets(person.birthmark);
+	printf("\n\n");
+	snicp=fopen(person.identitynumber,"a");
+	fprintf(snicp,"_____________________________________________\n");
+	fprintf(snicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(snicp,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(snicp,"\tSMART NATIONAL IDENTITY CARD\n");
+	fprintf(snicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(snicp,"Name: %s",person.name);//puts(name);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Father's name:%s ",person.fathername);
+	//puts(fathername);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Gender: %s",person.gender);
+	//puts(gender);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"identity number:%s ",person.identitynumber);
+	//puts(identitynumber);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Date of birth:%s ",person.dateofbirth);
+	//puts(dateofbirth);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Nationality:%s ",person.nationality);
+	//puts(country);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Religion:%s ",person.religion);
+	//puts(religion);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Permanent Address: %s",person.address);
+	//puts(address);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Date of issue:%s ",person.issuedate);
+	//puts(dateofbirth);
+	fprintf(snicp,"\n");
+	fprintf(snicp,"Birth Mark:%s ",person.birthmark);
+	//puts(birthmark);
+	fprintf(snicp,"\n\n");
+	fprintf(snicp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(snicp,"_____________________________________________\n");
+	fclose(snicp);
+}
+
+void birth() {
+	FILE *birthp=NULL;
+	printf("Name of child: ");
+	fflush(stdin);
+	gets(person.name);
+	printf("Date of birth: ");
+	gets(person.dateofbirth);
+	printf("Gender: ");
+	gets(person.gender);
+	printf("District of birth: ");
+	gets(person.district);
+	printf("Father's name: ");
+	gets(person.fathername);
+	printf("Nationality of father:");
+	gets(person.bc.fathernationality);
+	printf("CNIC No. of Father: ");
+	gets(person.fathercnic);
+	printf("Mother's name: ");
+	gets(person.mothername);
+	printf("Nationality of mother: ");
+	gets(person.bc.mothernationality);
+	printf("CNIC No. of mother: ");
+	gets(person.mothercnic);
+	printf("Grandfather's name: ");
+	gets(person.bc.grandfathername);
+	printf("Grand father's CNIC No. : ");
+	gets(person.bc.grandfathercnic);
+	printf("address: ");
+	gets(person.address);
+	printf("Name of applicant: ");
+	gets(person.applicantname);
+	printf("Relation with child: ");
+	gets(person.relation);
+	printf("\n\n");
+	birthp=fopen("projects sem 1","a");
+	fprintf(birthp,"_____________________________________________\n");
+	fprintf(birthp,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(birthp,"\tBirth Registration Certificate\n");
+	fprintf(birthp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(birthp,"\t\tChild's Detail\n\n");
+	fprintf(birthp,"Name:%s\n",person.name);
+	//fputs(name);
+	fprintf(birthp,"Date of birth:%s\n",person.dateofbirth);
+	//fputs(dateofbirth);
+	fprintf(birthp,"Gender:%s\n",person.gender);
+	//fputs(gender);
+	fprintf(birthp,"District of birth:%s \n",person.district);
+	//fputs(district);
+	fprintf(birthp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(birthp,"  ");
+	fprintf(birthp,"     \tParental Information\n\n");
+	fprintf(birthp,"Father's name:%s \n",person.fathername);
+	//fputs(fathername);
+	fprintf(birthp,"Nationality of father:%s\n",person.bc.fathernationality);
+	//fputs(fathernationality);
+	fprintf(birthp,"CNIC No. of Father: \n",person.fathercnic);
+	//fputs(fathercnic);
+	fprintf(birthp,"Mother's name:%s \n",person.mothername);
+	//fputs(mothername);
+	fprintf(birthp,"Nationality of mother: \n",person.bc.mothernationality);
+	//fputs(mothernationality);
+	fprintf(birthp,"CNIC No. of mother:%s \n",person.mothercnic);
+	//fputs(mothercnic);
+	fprintf(birthp,"Grandfather's name:%s \n",person.bc.grandfathername);
+	//fputs(grandfathername);
+	fprintf(birthp,"Grand father's CNIC No. :%s \n",person.bc.grandfathercnic);
+	//fputs(grandfathercnic);
+	fprintf(birthp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(birthp,"   \t\tAddress\n\n");
+	fprintf(birthp,"address:%s\n",person.address);
+	//fputs(address);
+	fprintf(birthp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(birthp,"    \tApplicant's Information\n\n");
+	fprintf(birthp,"Name of applicant:%s \n",person.applicantname);
+	//fputs(applicant);
+	fprintf(birthp,"Relation with child:%s \n",person.relation);
+	//fputs(relation);
+	fprintf(birthp,"\n");
+	fprintf(birthp,"_____________________________________________\n");
+	fclose(birthp);
+}
+void bform() {
+	printf("Name of applicant: ");
+	fflush(stdin);
+	gets(person.applicantname);
+	printf("CNIC No. of applicant: ");
+	gets(person.applicantcnic);
+	printf("Name of child: ");
+	gets(person.name);
+	printf("Gender: ");
+	gets(person.gender);
+	printf("Registration : ");
+	gets(person.identitynumber);
+	printf("Father's name: ");
+	gets(person.fathername);
+	printf("CNIC No. of Father: ");
+	gets(person.fathercnic);
+	printf("Mother's name: ");
+	gets(person.mothername);
+	printf("CNIC No. of mother: ");
+	gets(person.mothercnic);
+
+	printf("Date of birth: ");
+	gets(person.dateofbirth);
+	printf("Disability: ");
+	gets(person.bf.disability);
+	printf("\n\n");
+	printf("\n\n");
+
+	printf("_____________________________________________\n");
+	printf("\t   GOVERNMENT OF PAKISTAN\n\n");
+	printf("  ");
+	printf("\t\tB-Form\n");
+	printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	printf("Name of applicant: ");
+	puts(person.applicantname);
+	printf("CNIC No. of applicant: ");
+	puts(person.applicantcnic);
+	printf("Name of child: ");
+	puts(person.name);
+	printf("Gender: ");
+	puts(person.gender);
+	printf("Registration number: ");
+	puts(person.identitynumber);
+	printf("Father's name: ");
+	puts(person.fathername);
+	printf("CNIC No. of Father: ");
+	puts(person.fathercnic);
+	printf("Mother's name: ");
+	puts(person.mothername);
+	printf("CNIC No. of mother: ");
+	puts(person.mothercnic);
+
+	printf("Date of birth: ");
+	puts(person.dateofbirth);
+	printf("Disability: ");
+	puts(person.bf.disability);
+	printf("\n\n");
+	printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	printf("_____________________________________________\n");
+
+	FILE *bformp=NULL;
+	bformp=fopen(person.identitynumber,"a");
+	fprintf(bformp,"_____________________________________________\n");
+	fprintf(bformp,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(bformp,"  ");
+	fprintf(bformp,"\t\tB-Form\n");
+	fprintf(bformp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(bformp,"Name of applicant:%s \n",person.applicantname);
+	//puts(applicant);
+	fprintf(bformp,"CNIC No. of applicant:%s \n",person.applicantcnic);
+	//puts(applicantcnic);
+	fprintf(bformp,"Name of child:%s \n",person.name);
+	//puts(name);
+	fprintf(bformp,"Gender:%s \n",person.gender);
+	//puts(gender);
+	fprintf(bformp,"Registration number:%s \n",person.identitynumber);
+	//puts(registrationnumber);
+	fprintf(bformp,"Father's name:%s \n",person.fathername);
+	//puts(fathername);
+	fprintf(bformp,"CNIC No. of Father:%s \n",person.fathercnic);
+	//puts(fathercnic);
+	fprintf(bformp,"Mother's name:%s \n",person.mothername);
+	//puts(mothername);
+	fprintf(bformp,"CNIC No. of mother:%s \n",person.mothercnic);
+	//puts(mothercnic);
+
+	fprintf(bformp,"Date of birth:%s\n",person.dateofbirth);
+	//puts(dateofbirth);
+	fprintf(bformp,"Disability:%s \n",person.bf.disability);
+	//puts(disability);
+	fprintf(bformp,"\n\n");
+	fprintf(bformp,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(bformp,"_____________________________________________\n");
+	fclose(bformp);
+}
+void nicop() {
+	printf("Enter the following details:\n1.Name:  ");
+	fflush(stdin);
+	gets(person.name);
+	printf("\n2.Identity Number:  ");
+	gets(person.identitynumber);
+	printf("\n3.Father's Name:  ");
+	gets(person.fathername);
+	printf("\n4.Gender:  ");
+	gets(person.gender);
+	printf("\n5.Date of Birth(DD/MM/YYYY):  ");
+	gets(person.dateofbirth);
+	printf("\n6.Country of Stay:  ");
+	gets(person.op.country);
+	printf("\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("\t\t   NICOP CARD\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("   Name: ");
+	puts(person.name);
+	printf("\n   Identity Number: ");
+	puts(person.identitynumber);
+	printf("\n   Father's Name: ");
+	puts(person.fathername);
+	printf("\n   Gender: ");
+	puts(person.gender);
+	printf("\n   Date of Birth: ");
+	puts(person.dateofbirth);
+	printf("\n   Country of Stay: ");
+	puts(person.op.country);
+	FILE * nicop=NULL;
+	nicop=fopen(person.identitynumber,"a");
+	fprintf(nicop,"\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(nicop,"\t\t   NICOP CARD\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(nicop,"   Name: %s",person.name);
+	fprintf(nicop,"\n   ID number: %s",person.identitynumber);
+	fprintf(nicop,"\n   Father's Name: %s",person.fathername);
+	fprintf(nicop,"\n   Gender: %s",person.gender);
+	fprintf(nicop,"\n   Date of Birth: %s",person.dateofbirth);
+	fprintf(nicop,"\n   Country of Stay: %s",person.op.country);
+	fclose(nicop);
+}
+void marriage() {
+	printf("Enter Particulars of Groom:\n1.Name  ");
+	fflush(stdin);
+	gets(person.md.name_g);
+	printf("\n2.Nationality:  ");
+	gets(person.md.nat_g);
+	printf("\n3.CNIC.NO:  ");
+	gets(person.md.cnic_g);
+	printf("\n4.Religion:  ");
+	gets(person.md.rel_g);
+	printf("\n5.Age:  ");
+	gets(person.md.age_g);
+	printf("\n6.Martial Status:  ");
+	gets(person.md.martials_g);
+	printf("\n7.Father's Name:  ");
+	gets(person.md.fname_g);
+	printf("\n8.CNIC.NO:  ");
+	gets(person.md.fcnic_g);
+	printf("\n9.Address:  ");
+	gets(person.md.add_g);
+	printf("\n10.District:  ");
+	gets(person.md.dist_g);
+	printf("\n\nEnter Particulars of Bride:\n1.Name  ");
+	fflush(stdin);
+	gets(person.md.name_b);
+	printf("\n2.Nationality:  ");
+	gets(person.md.nat_b);
+	printf("\n3.CNIC.NO:  ");
+	gets(person.md.cnic_b);
+	printf("\n4.Religion:  ");
+	gets(person.md.rel_b);
+	printf("\n5.Age:  ");
+	gets(person.md.age_b);
+	printf("\n6.Martial Status:  ");
+	gets(person.md.martials_b);
+	printf("\n7.Father's Name:  ");
+	gets(person.md.fname_b);
+	printf("\n8.CNIC.NO:  ");
+	gets(person.md.fcnic_b);
+	printf("\n9.Address:  ");
+	gets(person.md.add_b);
+	printf("\n10.District:  ");
+	gets(person.md.dist_b);
+	printf("\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("\tMARRIAGE REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("\t     Particulars of Groom\n------------------------------------------------------\n");
+	printf("   Name: ");
+	puts(person.md.name_g);
+	printf("\n   Nationality: ");
+	puts(person.md.nat_g);
+	printf("\n   CNIC NO: ");
+	puts(person.md.cnic_g);
+	printf("\n   Religion: ");
+	puts(person.md.rel_g);
+	printf("\n   Age: ");
+	puts(person.md.age_g);
+	printf("\n   Martial Status: ");
+	puts(person.md.martials_g);
+	printf("\n   Father's Name: ");
+	puts(person.md.fname_g);
+	printf("\n   CNIC NO: ");
+	puts(person.md.fcnic_g);
+	printf("\n   Address: ");
+	puts(person.md.add_g);
+	printf("\n   District: ");
+	puts(person.md.dist_g);
+	printf("------------------------------------------------------\n\t     Particulars of Bride\n------------------------------------------------------\n");
+	printf("   Name: ");
+	puts(person.md.name_b);
+	printf("\n   Nationality: ");
+	puts(person.md.nat_b);
+	printf("\n   CNIC NO: ");
+	puts(person.md.cnic_b);
+	printf("\n   Religion: ");
+	puts(person.md.rel_b);
+	printf("\n   Age: ");
+	puts(person.md.age_b);
+	printf("\n   Martial Status: ");
+	puts(person.md.martials_b);
+	printf("\n   Father's Name: ");
+	puts(person.md.fname_b);
+	printf("\n   CNIC NO: ");
+	puts(person.md.fcnic_b);
+	printf("\n   Address: ");
+	puts(person.md.add_b);
+	printf("\n   District: ");
+	puts(person.md.dist_b);
+	FILE * mb=NULL;
+	FILE * mg=NULL;
+	mg=fopen(person.md.cnic_g,"a");
+	fprintf(mg,"\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(mg,"\tMARRIAGE REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(mg,"\t     Particulars of Groom\n------------------------------------------------------\n");
+	fprintf(mg,"   Name: %s",person.md.name_g);
+
+	fprintf(mg,"\n   Nationality: %s",person.md.nat_g);
+
+	fprintf(mg,"\n   CNIC NO: %s",person.md.cnic_g);
+
+	fprintf(mg,"\n   Religion: %s",person.md.rel_g);
+
+	fprintf(mg,"\n   Age: %s",person.md.age_g);
+
+	fprintf(mg,"\n   Martial Status: %s",person.md.martials_g);
+
+	fprintf(mg,"\n   Father's Name: %s",person.md.fname_g);
+
+	fprintf(mg,"\n   CNIC NO: %s",person.md.fcnic_g);
+
+	fprintf(mg,"\n   Address: %s",person.md.add_g);
+
+	fprintf(mg,"\n   District: %s\n",person.md.dist_g);
+
+	fprintf(mg,"------------------------------------------------------\n\t     Particulars of Bride\n------------------------------------------------------\n");
+	fprintf(mg,"   Name: %s",person.md.name_b);
+
+	fprintf(mg,"\n   Nationality: %s",person.md.nat_b);
+
+	fprintf(mg,"\n   CNIC NO: %s",person.md.cnic_b);
+
+	fprintf(mg,"\n   Religion: %s",person.md.rel_b);
+
+	fprintf(mg,"\n   Age: %s",person.md.age_b);
+
+	fprintf(mg,"\n   Martial Status: %s",person.md.martials_b);
+
+	fprintf(mg,"\n   Father's Name: %s",person.md.fname_b);
+
+	fprintf(mg,"\n   CNIC NO: %s",person.md.fcnic_b);
+
+	fprintf(mg,"\n   Address: %s",person.md.add_b);
+
+	fprintf(mg,"\n   District: %s",person.md.dist_b);
+
+	fclose(mg);
+	mb=fopen(person.md.cnic_b,"a");
+	fprintf(mb,"\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(mb,"\tMARRIAGE REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(mb,"\t     Particulars of Groom\n------------------------------------------------------\n");
+	fprintf(mb,"   Name: %s",person.md.name_b);
+
+	fprintf(mb,"\n   Nationality: %s",person.md.nat_g);
+
+	fprintf(mb,"\n   CNIC NO: %s",person.md.cnic_g);
+
+	fprintf(mb,"\n   Religion: %s",person.md.rel_g);
+
+	fprintf(mb,"\n   Age: %s",person.md.age_g);
+
+	fprintf(mb,"\n   Martial Status: %s",person.md.martials_g);
+
+	fprintf(mb,"\n   Father's Name: %s",person.md.fname_g);
+
+	fprintf(mb,"\n   CNIC NO: %s",person.md.fcnic_g);
+	fprintf(mb,"\n   Address: %s",person.md.add_g);
+
+	fprintf(mb,"\n   District: %s\n",person.md.dist_g);
+
+	fprintf(mb,"------------------------------------------------------\n\t     Particulars of Bride\n------------------------------------------------------\n");
+	fprintf(mb,"   Name: %s",person.md.name_b);
+
+	fprintf(mb,"\n   Nationality: %s",person.md.nat_b);
+
+	fprintf(mb,"\n   CNIC NO: %s",person.md.cnic_b);
+	fprintf(mb,"\n   Religion: %s",person.md.rel_b);
+
+	fprintf(mb,"\n   Age: %s",person.md.age_b);
+
+	fprintf(mb,"\n   Martial Status: %s",person.md.martials_b);
+
+	fprintf(mb,"\n   Father's Name: %s",person.md.fname_b);
+
+	fprintf(mb,"\n   CNIC NO: %s",person.md.fcnic_b);
+	fprintf(mb,"\n   Address: %s",person.md.add_b);
+	fprintf(mb,"\n   District: %s",person.md.dist_b);
+	fclose(mb);
+}
+void divorce() {
+	printf("Enter Divorcer's Details:\n1.Name  ");
+	fflush(stdin);
+	gets(person.md.name_g);
+	printf("\n2.Nationality:  ");
+	gets(person.md.nat_g);
+	printf("\n3.CNIC.NO:  ");
+	gets(person.md.cnic_g);
+	printf("\n4.Religion:  ");
+	gets(person.md.rel_g);
+	printf("\n5.Age:  ");
+	gets(person.md.age_g);
+	printf("\n6.Father's Name:  ");
+	gets(person.md.fname_g);
+	printf("\n7.CNIC.NO:  ");
+	gets(person.md.fcnic_g);
+	printf("\n8.Address:  ");
+	gets(person.md.add_g);
+	printf("\n9.District:  ");
+	gets(person.md.dist_g);
+	printf("\n\nEnter Divorcee's Details:\n1.Name  ");
+	fflush(stdin);
+	gets(person.md.name_b);
+	printf("\n2.Nationality:  ");
+	gets(person.md.nat_b);
+	printf("\n3.CNIC.NO:  ");
+	gets(person.md.cnic_b);
+	printf("\n4.Religion:  ");
+	gets(person.md.rel_b);
+	printf("\n5.Age:  ");
+	gets(person.md.age_b);
+	printf("\n6.Father's Name:  ");
+	gets(person.md.fname_b);
+	printf("\n7.CNIC.NO:  ");
+	gets(person.md.fcnic_b);
+	printf("\n8.Address:  ");
+	gets(person.md.add_b);
+	printf("\n9.District:  ");
+	gets(person.md.dist_b);
+	printf("\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("\tDivorce REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	printf("\t     Divorcer's Details\n------------------------------------------------------\n");
+	printf("   Name: ");
+	puts(person.md.name_g);
+	printf("\n   Nationality: ");
+	puts(person.md.nat_g);
+	printf("\n   CNIC NO: ");
+	puts(person.md.cnic_g);
+	printf("\n   Religion: ");
+	puts(person.md.rel_g);
+	printf("\n   Age: ");
+	puts(person.md.age_g);
+	printf("\n   Father's Name: ");
+	puts(person.md.fname_g);
+	printf("\n   CNIC NO: ");
+	puts(person.md.fcnic_g);
+	printf("\n   Address: ");
+	puts(person.md.add_g);
+	printf("\n   District: ");
+	puts(person.md.dist_g);
+	printf("------------------------------------------------------\n\t    Divorcee's Details\n------------------------------------------------------\n");
+	printf("   Name: ");
+	puts(person.md.name_b);
+	printf("\n   Nationality: ");
+	puts(person.md.nat_b);
+	printf("\n   CNIC NO: ");
+	puts(person.md.cnic_b);
+	printf("\n   Religion: ");
+	puts(person.md.rel_b);
+	printf("\n   Age: ");
+	puts(person.md.age_b);
+	printf("\n   Father's Name: ");
+	puts(person.md.fname_b);
+	printf("\n   CNIC NO: ");
+	puts(person.md.fcnic_b);
+	printf("\n   Address: ");
+	puts(person.md.add_b);
+	printf("\n   District: ");
+	puts(person.md.dist_b);
+	FILE * db=NULL;
+	FILE * dg=NULL;
+	dg=fopen(person.md.cnic_g,"a");
+	fprintf(dg,"\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(dg,"\tDivorce REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(dg,"\t      Divorcer's Details\n------------------------------------------------------\n");
+	fprintf(dg,"   Name: %s",person.md.name_g);
+
+	fprintf(dg,"\n   Nationality: %s",person.md.nat_g);
+
+	fprintf(dg,"\n   CNIC NO: %s",person.md.cnic_g);
+
+	fprintf(dg,"\n   Religion: %s",person.md.rel_g);
+
+	fprintf(dg,"\n   Age: %s",person.md.age_g);
+
+	fprintf(dg,"\n   Martial Status: %s",person.md.martials_g);
+
+	fprintf(dg,"\n   Father's Name: %s",person.md.fname_g);
+
+	fprintf(dg,"\n   CNIC NO: %s",person.md.fcnic_g);
+
+	fprintf(dg,"\n   Address: %s",person.md.add_g);
+
+	fprintf(dg,"\n   District: %s\n",person.md.dist_g);
+
+	fprintf(dg,"------------------------------------------------------\n\t    Divorcee's Details\n------------------------------------------------------\n");
+	fprintf(dg,"   Name: %s",person.md.name_b);
+
+	fprintf(dg,"\n   Nationality: %s",person.md.nat_b);
+
+	fprintf(dg,"\n   CNIC NO: %s",person.md.cnic_b);
+
+	fprintf(dg,"\n   Religion: %s",person.md.rel_b);
+
+	fprintf(dg,"\n   Age: %s",person.md.age_b);
+
+	fprintf(dg,"\n   Martial Status: %s",person.md.martials_b);
+
+	fprintf(dg,"\n   Father's Name: %s",person.md.fname_b);
+
+	fprintf(dg,"\n   CNIC NO: %s",person.md.fcnic_b);
+
+	fprintf(dg,"\n   Address: %s",person.md.add_b);
+
+	fprintf(dg,"\n   District: %s",person.md.dist_b);
+
+	fclose(dg);
+	db=fopen(person.md.cnic_b,"a");
+	fprintf(db,"\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(db,"\tDivorce REGISTERATION CERTIFICATE\n------------------------------------------------------\n------------------------------------------------------\n");
+	fprintf(db,"\t     Divorcer's Details\n------------------------------------------------------\n");
+	fprintf(db,"   Name: %s",person.md.name_b);
+
+	fprintf(db,"\n   Nationality: %s",person.md.nat_g);
+
+	fprintf(db,"\n   CNIC NO: %s",person.md.cnic_g);
+
+	fprintf(db,"\n   Religion: %s",person.md.rel_g);
+
+	fprintf(db,"\n   Age: %s",person.md.age_g);
+
+	fprintf(db,"\n   Father's Name: %s",person.md.fname_g);
+
+	fprintf(db,"\n   CNIC NO: %s",person.md.fcnic_g);
+	fprintf(db,"\n   Address: %s",person.md.add_g);
+
+	fprintf(db,"\n   District: %s\n",person.md.dist_g);
+
+	fprintf(db,"------------------------------------------------------\n\t     Divorcee's Details\n------------------------------------------------------\n");
+	fprintf(db,"   Name: %s",person.md.name_b);
+
+	fprintf(db,"\n   Nationality: %s",person.md.nat_b);
+
+	fprintf(db,"\n   CNIC NO: %s",person.md.cnic_b);
+	fprintf(db,"\n   Religion: %s",person.md.rel_b);
+
+	fprintf(db,"\n   Age: %s",person.md.age_b);
+	fprintf(db,"\n   Father's Name: %s",person.md.fname_b);
+
+	fprintf(db,"\n   CNIC NO: %s",person.md.fcnic_b);
+	fprintf(db,"\n   Address: %s",person.md.add_b);
+	fprintf(db,"\n   District: %s",person.md.dist_b);
+	fclose(db);
+
+}
+
+void juvenile() {
+	/*	char f_name[20],name[50];
+		int identity_no[20],DOB[15],DOI[15],DOE[15],gender[8],country[20];*/
+	printf("Name: ");
+	fflush(stdin);
+	gets(person.name);
+	printf("Father Name: ");
+	gets(person.fathername);
+	printf("Gender: ");
+	gets(person.gender);
+	printf("Country Of Stay: ");
+	gets(person.nationality);
+	printf("Identity Number: ");
+	gets(person.identitynumber);
+	printf("Date Of Birth: ");
+	gets(person.dateofbirth);
+	printf("Date Of Insurace: ");
+	gets(person.issuedate);
+	printf("Date Of Expiry: ");
+	gets(person.expirydate);
+	/*	printf("____________________________________________________________________\n");
+		printf("\t\t\t\t\t\t   Only For UNDER 18");
+		printf("\n\nPAKISTAN\t\t\tNational Identity Card");
+		printf("\n-----------\nISLAMIC REPUBLIC OF PAKISTAN");
+		printf("Name: ");
+		puts(name);
+		printf("Father Name: ");
+		puts(f_name);
+		printf("Gender: ");
+		puts(gender);
+		printf("Country Of Stay: ");
+		puts(country);
+		printf("Country Of Stay: ");
+		puts(identity_no);
+		printf("Date Of Birth: ");
+		puts(DOB);
+		printf("Date Of Insurace: ");
+		puts(DOI);
+		printf("Date Of Expiry: ");
+		puts(DOE);*/
+	FILE *juvenile=NULL;
+	juvenile=fopen(person.identitynumber,"a");
+	fprintf(juvenile,"_____________________________________________\n");
+	fprintf(juvenile,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(juvenile,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(juvenile," ");
+	fprintf(juvenile," ");
+	fprintf(juvenile," ");
+	fprintf(juvenile," ");
+	fprintf(juvenile,"\t    ONLY FOR UNDER 18	\n");
+	fprintf(juvenile,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(juvenile,"Name: %s",person.name);//puts(name);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Father's name:%s ",person.fathername);
+	//puts(fathername);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Gender: %s",person.gender);
+	//puts(gender);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Country of stay:%s ",person.nationality);
+
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"identity number:%s ",person.identitynumber);
+	//puts(identitynumber);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Date of birth:%s ",person.dateofbirth);
+	//puts(dateofbirth);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Date of insurance:%s ",person.issuedate);
+	//puts(country);
+	fprintf(juvenile,"\n");
+	fprintf(juvenile,"Date of expiry:%s ",person.expirydate);
+	fprintf(juvenile,"\n\n");
+	fprintf(juvenile,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(juvenile,"_____________________________________________\n");
+	fclose(juvenile);
+
+}
+
+
+
+void vaccine() {
+
+	/*	char nationality[15],namofcent1[20],vac_nam1[15],namofcent2[20],vac_nam2[15],name[50];
+		int passport[15],CNIC[19],vac1[10],vac2[10],DOB[15];*/
+	printf("IMMUNIZATION CERTIFICATE FOR COVID-19\n");
+	printf("ENTER NAME: ");
+	gets(person.name);
+	printf("ENTER THE DATE OF BIRTH[DD-MM-YY]: ");
+	gets(person.dateofbirth);
+	printf("ENTER THE NATIONALITY: ");
+	gets(person.nationality);
+	printf("ENTER THE CNIC NO.: ");
+	gets(person.identitynumber);
+	printf("ENTER THE PASSPORT NO.: ");
+	gets(person.vacc.passport);
+	printf("\nhas been administered following COVID-19 vaccination\n");
+
+	printf("ENTER DATE OF 1 VACCINATION DOSE[DD-MM-YY]: ");
+	gets(person.vacc.dateofvac1);
+	printf("ENTER THE NAME OF CENTRE: ");
+	gets(person.vacc.center1);
+	printf("ENTER THE VACCINE MANUFACTURER NAME: ");
+	gets(person.vacc.nameofVac1);
+	printf("ENTER DATE OF 2 VACCINATION DOSE[DD-MM-YY]: ");
+	gets(person.vacc.dateofvac2);
+	printf("ENTER THE NAME OF CENTRE: ");
+	gets(person.vacc.center2);
+	printf("ENTER THE VACCINE MANUFACTURER NAME: ");
+	gets(person.vacc.nameofVac2);
+
+
+	FILE *vaccine=NULL;
+	vaccine=fopen(person.identitynumber,"a");
+	fprintf(vaccine,"_____________________________________________\n");
+	fprintf(vaccine,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(vaccine,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(vaccine," ");
+	fprintf(vaccine," ");
+	fprintf(vaccine," ");
+	fprintf(vaccine," ");
+	fprintf(vaccine,"\t  VACCINATION CARD\n");
+	fprintf(vaccine,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(vaccine,"Name: %s",person.name);//puts(name);
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Date of birth:%s ",person.dateofbirth);
+	//puts(fathername);
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"identity number:%s ",person.identitynumber);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Nationality: %s",person.nationality);
+	//puts(identitynumber);
+	fprintf(vaccine,"\n");
+
+	fprintf(vaccine,"Passport:%s ",person.vacc.passport);
+	//puts(country);
+	fprintf(vaccine,"\n");
+	fprintf(vaccine," _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(vaccine,"Vaccine 1:");
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Vaccine 1: %s",person.vacc.dateofvac1);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Name of Health centre: %s ",person.vacc.center1);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Manufacturer Name:%s ",person.vacc.nameofVac1);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+
+	//	fprintf(vaccine," _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(vaccine,"Vaccine 2:");
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Vaccine 2: %s",person.vacc.dateofvac2);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Name of Health centre: %s ",person.vacc.center2);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"Manufacturer Name:%s ",person.vacc.nameofVac2);
+
+	fprintf(vaccine,"\n");
+	fprintf(vaccine,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(vaccine,"_____________________________________________\n");
+	fclose(vaccine);
+}
+
+
+void death() {
+	int CRMS[10],FORM[10], cnic[16],DOD[15],DOBU[15],SICK[10],E_D[16],I_D[16];
+	char nature[10],name[50],rel[20],house[50],city[20],tehsil[20], deceased[50],d_cnic[16],GRAVEYARD[20],sex[15];
+	char religion[20],p_of_death[20],R_O_D[30],A_I[30],f_name[20],district[30],DOB[15];
+
+	printf("CRMS NO: ");
+	fflush(stdin);
+	gets(person.dt.crms);
+	printf("FORM NO: ");
+	gets(person.dt.formnumber);
+	printf("NATURE OF DEATH: ");
+	gets(person.dt.nature);
+	printf("APPLICANT NAME: ");
+	gets(person.applicantname);
+	printf("APPLICANT CNIC: ");
+	gets(person.applicantcnic);
+	printf("RELATION WITH DECEASED: ");
+	gets(person.relation);
+	printf("ADDRESS: HOUSE#: ");
+	gets(person.dt.housenumber);
+	printf("CITY: ");
+	gets(person.dt.city);
+	printf("TEHSIL: ");
+	gets(person.dt.tehsil);
+	printf("DISTRICT: ");
+	gets(person.district);
+	printf("DECEASED NAME: ");
+	fflush(stdin);
+	gets(person.name);
+	printf("DECEASED CNIC: ");
+	gets(person.identitynumber);
+	printf("FATHER NAME: ");
+	gets(person.fathername);
+	printf("DATE OF BIRTH: ");
+	gets(person.dateofbirth);
+	printf("GENDER: ");
+	gets(person.gender);
+	printf("RELIGION: ");
+	gets(person.religion);
+	printf("PLACE OF DEATH: ");
+	gets(person.dt.placeofdeath);
+	printf("DATE OF DEATH: ");
+	gets(person.dt.dateofdeath);
+	printf("DATE OF BURIAL: ");
+	gets(person.dt.dateofburial);
+	printf("GRAVEYARD NAME: ");
+	gets(person.dt.graveyard);
+	printf("ENTRY DATE:  ");
+	gets(person.dt.entrydate);
+	printf("ISSUE DATE: ");
+	gets(person.issuedate);
+	printf("ADDITIONAL INFORMATION: ");
+	gets(person.dt.addinfo);
+
+
+	FILE *death=NULL;
+	death=fopen(person.identitynumber,"a");
+	fprintf(death,"_____________________________________________\n");
+	fprintf(death,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(death,"\t   GOVERNMENT OF PAKISTAN\n\n");
+	fprintf(death," ");
+	fprintf(death," ");
+	fprintf(death," ");
+	fprintf(death," ");
+	fprintf(death,"\t    DEATH CERTIFICATE\n");
+	fprintf(death,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+	fprintf(death,"CRMS: %s",person.dt.crms);
+	fprintf(death,"\n");
+	fprintf(death,"FORM NO: %s",person.dt.formnumber);
+	fprintf(death,"\n");
+	fprintf(death,"NATURE OF DEATH: %s",person.dt.nature);
+	fprintf(death,"\n");
+	fprintf(death,"APPLICANT NAME: %s",person.applicantname);
+	fprintf(death,"\n");
+	fprintf(death,"APPLICANT CNIC: %s",person.applicantcnic);
+	fprintf(death,"\n");
+	fprintf(death,"RELATION WITH DECEASED: %s",person.relation);
+	fprintf(death,"\n");
+	fprintf(death,"ADDRESS: HOUSE#: %s",person.dt.housenumber);
+	fprintf(death,"\n");
+	fprintf(death,"CITY: %s",person.dt.city);
+	fprintf(death,"\n");
+	fprintf(death,"TEHSIL: %s",person.dt.tehsil);
+	fprintf(death,"\n");
+	fprintf(death,"DISTRICT: %s",person.district);
+	fprintf(death,"\n");
+	fprintf(death,"DECEASED NAME: %s",person.name);
+//	fflush(stdin);
+	fprintf(death,"\n");
+	fprintf(death,"DECEASED CNIC: %s",person.identitynumber);
+	fprintf(death,"\n");
+	fprintf(death,"FATHER NAME: %s",person.fathername);
+	fprintf(death,"\n");
+	fprintf(death,"DATE OF BIRTH: %s",person.dateofbirth);
+	fprintf(death,"\n");
+	fprintf(death,"GENDER: %s",person.gender);
+	fprintf(death,"\n");
+	fprintf(death,"RELIGION: %s",person.religion);
+	fprintf(death,"\n");
+	fprintf(death,"PLACE OF DEATH: %s",person.dt.placeofdeath);
+	fprintf(death,"\n");
+	fprintf(death,"DATE OF DEATH: %s",person.dt.dateofdeath);
+	fprintf(death,"\n");
+	fprintf(death,"DATE OF BURIAL: %s",person.dt.dateofburial);
+	fprintf(death,"\n");
+	fprintf(death,"GRAVEYARD NAME: %s",person.dt.graveyard);
+	fprintf(death,"\n");
+	fprintf(death,"ENTRY DATE: %s",person.dt.entrydate);
+	fprintf(death,"\n");
+	fprintf(death,"ISSUE DATE: %s",person.issuedate);
+	fprintf(death,"\n");
+	fprintf(death,"ADDITIONAL INFORMATION: %s",person.dt.addinfo);
+//	fprintf(death,"\n");
+	fprintf(death,"\n\n");
+	fprintf(death,"_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n");
+
+	fprintf(death,"_____________________________________________\n");
+	fclose(death);
+
+	//---------------------------------------------------------------------------------------------------------
+	//for output
+
+	/*	printf("\t\tTHE GOVT. OF SINDH PAKISTAN\n\n\t\t    DEATH CERTIFICTE\n\n");
+		printf("CRMS NO: %s\t\t\t\t\tFORM NO: %s\n",CRMS ,FORM );
+		printf("NATURE OF DEATH: ");
+		puts(nature);
+		printf("APPLICANT NAME: ");
+		puts(name);
+		printf("CNIC: %s\t\tRELATION WITH DECEASED: %s\n", cnic, rel);
+		printf("ADDRESS: HOUSE#: ");
+		puts(house);
+		printf("CITY: %s\tTEHSIL: %s\tDISTRICT: %s\n\n",city, tehsil,district);
+		printf("DECEASED NAME:%s\nFATHER NAME: %s\nDATE OF BIRTH:%s\nGENDER: %s\nRELIGION: %s\nPLACE: %s\nDATE OF BURIAL: %s",deceased, f_name, DOB, sex,religion,p_of_death, DOBU  );
+		printf("NAME: %s\nCNIC: %s\nGRAVEYARD NAME: %s\nENTRY DATE: %s\nISSUE DATE: %s\nADDITIONAL INFO: %s", deceased, d_cnic, GRAVEYARD, E_D, I_D,A_I);*/
+
 }
